@@ -64,6 +64,6 @@ O DER refina o MER e transforma as entidades e relacionamentos em tabelas e colu
 
 ## Modelo Físico
 
-![SCRIPTS](https://github.com/Eduardo-J-S/FAP-SOFTEX/blob/main/Database/aulas/atividade05/modelo_fisico_clinica_medica.sql)
+[SCRIPTS](https://github.com/Eduardo-J-S/FAP-SOFTEX/blob/main/Database/aulas/atividade05/modelo_fisico_clinica_medica.sql)
 
 
