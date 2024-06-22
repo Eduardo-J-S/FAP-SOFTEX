@@ -5,8 +5,8 @@ WHERE membro_id = 1;
 SELECT * FROM membros;
 
 #DELETE (exlcuir)
-DELETE FROM membros
-WHERE membro_id = 1;
+#DELETE FROM membros
+#WHERE membro_id = 1;
 
 #ALTERANDO TAMANHO COLUNA CARGO DA TABELA MEMBROS
 ALTER TABLE membros MODIFY cargo varchar(60);
@@ -22,10 +22,10 @@ VALUES (2, "João Silva", "Desenvolvedor Full Stack", "M"),
 #Inserir cinco registros na tabela tarefas, cada tarefa deve estar associada a um membro da equipe;
 INSERT INTO tarefas(tarefa_id, descricao, membro_id, data_inicio, data_finalizacao) 
 VALUES (2, "Desenvolver novo módulo de login para o sistema.", 2, "2024-06-20", "2024-07-20"),
-(3, "Realizar manutenção preventiva nos servidores.", 4, "2024-06-20", "2024-07-20"),
-(4, "Criar documentação técnica do projeto XYZ.", 5, "2024-06-20", "2024-07-20"),
-(5, "Testar e validar integração com API externa.", 3, "2024-06-20", "2024-07-20"),
-(6, "Implementar melhorias na interface do usuário.", 6, "2024-06-20", "2024-07-20");
+(3, "Realizar manutenção preventiva nos servidores.", 4, "2024-06-25", "2024-07-20"),
+(4, "Criar documentação técnica do projeto XYZ.", 5, "2024-06-18", "2024-07-20"),
+(5, "Testar e validar integração com API externa.", 3, "2024-06-30", "2024-07-20"),
+(6, "Implementar melhorias na interface do usuário.", 6, "2024-06-12", "2024-07-20");
 
 SELECT * FROM tarefas;
 
