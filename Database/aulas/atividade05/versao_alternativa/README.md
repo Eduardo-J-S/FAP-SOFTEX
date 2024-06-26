@@ -62,7 +62,7 @@ O DER refina o MER e transforma as entidades e relacionamentos em tabelas e colu
 
 ### DER
 
-![DER](https://github.com/Eduardo-J-S/FAP-SOFTEX/blob/main/Database/aulas/atividade05/versao_alternativa/modelo_logico_clinica_alternativo.png)
+![DER](https://github.com/Eduardo-J-S/FAP-SOFTEX/blob/main/Database/aulas/atividade05/versao_alternativa/modelo_logico_clinica_medica_alternativo.png)
 
 ## Considerações
 - As tabelas `endereco_medico` e `endereco_paciente` armazenam múltiplos endereços para médicos e pacientes, respectivamente.
