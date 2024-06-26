@@ -7,8 +7,8 @@ Este projeto é um sistema de gerenciamento de consultas médicas, que permite r
 ## Entidades e Atributos
 
 1. **Medico**
-    - **CRM (INT, Primary Key)**: Número de registro no Conselho Regional de Medicina.
-    - **nome (VARCHAR(60), NOT NULL)**: Nome do médico.
+    - **CRM (VARCHAR(12), Primary Key)**: Número de registro no Conselho Regional de Medicina.
+    - **nome (VARCHAR(45), NOT NULL)**: Nome do médico.
     - **genero (CHAR(1))**: Gênero do médico.
     - **especialidade (VARCHAR(45), NOT NULL)**: Especialidade médica.
 
@@ -24,24 +24,25 @@ Este projeto é um sistema de gerenciamento de consultas médicas, que permite r
     - **diagnostico (VARCHAR(45))**: Diagnóstico médico.
     - **receita (VARCHAR(45))**: Receita médica prescrita.
     - **observacoes (VARCHAR(60))**: Observações relevantes da consulta.
-    - **medico_CRM (INT)**: Chave estrangeira referenciando o CRM do médico na tabela Médico.
+    - **medico_CRM (VARCHAR(12))**: Chave estrangeira referenciando o CRM do médico na tabela Médico.
     - **paciente_CPF (VARCHAR(11))**: Chave estrangeira referenciando o CPF do paciente na tabela Paciente.
 
 4. **Telefone**
     - **telefone_id (INT, Primary Key)**: Identificador único do telefone.
     - **telefone (VARCHAR(15))**: Número de telefone.
-    - **medico_CRM (INT)**: Chave estrangeira referenciando o CRM do médico na tabela Médico.
+    - **medico_CRM (VARCHAR(12))**: Chave estrangeira referenciando o CRM do médico na tabela Médico.
     - **paciente_CPF (VARCHAR(11))**: Chave estrangeira referenciando o CPF do paciente na tabela Paciente.
 
 5. **Endereco**
     - **endereco_id (INT, Primary Key)**: Identificador único do endereço.
+    - **medico_CRM (VARCHAR(12))**: Chave estrangeira referenciando o CRM do médico na tabela Médico.
     - **rua (VARCHAR(60))**: Nome da rua.
     - **numero (VARCHAR(10))**: Número do endereço.
     - **bairro (VARCHAR(45))**: Nome do bairro.
     - **cidade (VARCHAR(45))**: Nome da cidade.
     - **estado (CHAR(2))**: Sigla do estado.
     - **cep (VARCHAR(10))**: CEP do endereço.
-    - **medico_CRM (INT)**: Chave estrangeira referenciando o CRM do médico na tabela Médico.
+ 
 
 ## Modelo Entidade-Relacionamento (MER)
 
