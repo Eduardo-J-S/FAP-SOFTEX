@@ -45,34 +45,40 @@ const tarefas = () => {
           //let membroCorrespondenteFilter = sistemaCoordenar.find(membros => membros.membro === nome);  Erro: membroCorrespondenteFilter.tarefa.push is not a function
 
           if (membroCorrespondente) {
-            // console.log(sistemaCoordenar[0].tarefa[0])
-            // console.log(sistemaCoordenar.length)
-            // console.log(sistemaCoordenar[0].tarefa.length)
 
-            // console.log(sistemaCoordenar[0])
-            // console.log(sistemaCoordenar[0].tarefa)
-
-            let interromper = false;
-
-            for (let i = 0; i < sistemaCoordenar.length; i++) {
-              for (let j = 0; j < sistemaCoordenar[i].tarefa.length; j++) {
-                let tar = sistemaCoordenar[i].tarefa[j];
-                if (tar === descricao) {
-                  interromper = true;
-                  break;
-                }
-              }
-              if (interromper) {
-                console.log("Tarefa já designada a um membro.");
-                break;
-              }
-            }
-
-            if (!interromper) {
+            let tarefaJaDesignada = sistemaCoordenar.some(membro =>
+              membro.tarefa.some(tar => tar === descricao)
+            );
+            
+            if (tarefaJaDesignada) {
+              console.log("Tarefa já designada a um membro.");
+            } else {
               membroCorrespondente.tarefa.push(descricao);
               console.log(membroCorrespondente);
               console.log("Tarefa designada com sucesso a um membro.");
             }
+
+            // let interromper = false;
+
+            // for (let i = 0; i < sistemaCoordenar.length; i++) {
+            //   for (let j = 0; j < sistemaCoordenar[i].tarefa.length; j++) {
+            //     let tar = sistemaCoordenar[i].tarefa[j];
+            //     if (tar === descricao) {
+            //       interromper = true;
+            //       break;
+            //     }
+            //   }
+            //   if (interromper) {
+            //     console.log("Tarefa já designada a um membro.");
+            //     break;
+            //   }
+            // }
+
+            // if (!interromper) {
+            //   membroCorrespondente.tarefa.push(descricao);
+            //   console.log(membroCorrespondente);
+            //   console.log("Tarefa designada com sucesso a um membro.");
+            // }
           } else {
             console.log("Nenhum membro com esse nome encontrado.");
           }
