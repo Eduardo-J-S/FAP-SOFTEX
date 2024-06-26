@@ -6,13 +6,6 @@ CREATE TABLE medico(
 	CRM INT PRIMARY KEY,
     nome VARCHAR(60) NOT NULL,
     genero CHAR(1),
-    telefone VARCHAR(14) NOT NULL,
-    rua VARCHAR(60),
-    numero VARCHAR(10),
-    bairro VARCHAR(45),
-    cidade VARCHAR(45),
-    estado CHAR(2),
-    cep VARCHAR(10),
     especialidade VARCHAR(45) NOT NULL
 );
 
@@ -22,14 +15,13 @@ CREATE TABLE paciente(
 	CPF VARCHAR(11) PRIMARY KEY,
     nome VARCHAR(60) NOT NULL,
     genero CHAR(1) NOT NULL,
-    telefone VARCHAR(14) NOT NULL,
     data_nascimento DATE
 );
 
 SELECT * FROM paciente;
 
 CREATE TABLE consulta(
-	numero_consulta INT PRIMARY KEY,
+	consulta_id INT PRIMARY KEY,
     data_marcada DATETIME NOT NULL,
     diagnostico VARCHAR(45),
     receita VARCHAR(45),
@@ -41,3 +33,24 @@ CREATE TABLE consulta(
 );
 
 SELECT * FROM consulta;
+
+CREATE TABLE telefone(
+	telefone_id INT PRIMARY KEY,
+	telefone VARCHAR(15),
+    medico_CRM INT,
+    paciente_CPF VARCHAR(11),
+    FOREIGN KEY (medico_CRM) REFERENCES medico(CRM),
+    FOREIGN KEY (paciente_CPF) REFERENCES paciente(CPF)
+);
+
+CREATE TABLE endereco(
+	endereco_id INT PRIMARY KEY,
+    rua VARCHAR(60),
+    numero VARCHAR(10),
+    bairro VARCHAR(45),
+    cidade VARCHAR(45),
+    estado CHAR(2),
+    cep VARCHAR(10),
+	medico_CRM INT,
+    FOREIGN KEY (medico_CRM) REFERENCES medico(CRM)
+);

@@ -6,53 +6,46 @@ Este projeto é um sistema de gerenciamento de consultas médicas, que permite r
 
 ## Entidades e Atributos
 
-### Entidade: Médico
-- **CRM** (INT, Primary Key): Número de registro no Conselho Regional de Medicina.
-- **Nome** (VARCHAR(60)): Nome do médico.
-- **Gênero** (CHAR(1)): Gênero do médico.
-- **Telefone** (VARCHAR(14)): Telefone do médico.
-- **Endereço**
-  - **Rua** (VARCHAR(60))
-  - **Número** (VARCHAR(10))
-  - **Bairro** (VARCHAR(45))
-  - **Cidade** (VARCHAR(45))
-  - **Estado** (CHAR(2))
-  - **CEP** (VARCHAR(10))
-- **Especialidade** (VARCHAR(45)): Especialidade médica do médico.
+1. **Medico**
+    - **CRM (INT, Primary Key)**: Número de registro no Conselho Regional de Medicina.
+    - **nome (VARCHAR(60), NOT NULL)**: Nome do médico.
+    - **genero (CHAR(1))**: Gênero do médico.
+    - **especialidade (VARCHAR(45), NOT NULL)**: Especialidade médica.
 
-### Entidade: Paciente
-- **CPF** (VARCHAR(11), Primary Key): Número de CPF do paciente.
-- **Nome** (VARCHAR(60)): Nome do paciente.
-- **Gênero** (CHAR(1)): Gênero do paciente.
-- **Telefone** (VARCHAR(14)): Telefone do paciente.
-- **Data de Nascimento** (DATE): Data de nascimento do paciente.
+2. **Paciente**
+    - **CPF (VARCHAR(11), Primary Key)**: Número de CPF do paciente.
+    - **nome (VARCHAR(60), NOT NULL)**: Nome do paciente.
+    - **genero (CHAR(1), NOT NULL)**: Gênero do paciente.
+    - **data_nascimento (DATE)**: Data de nascimento do paciente.
 
-### Entidade: Consulta
-- **Número de Consulta** (INT, Primary Key): Número único da consulta.
-- **Data Marcada** (DATETIME): Data e hora marcadas para a consulta.
-- **Diagnóstico** (VARCHAR(45)): Diagnóstico médico da consulta.
-- **Receita** (VARCHAR(45)): Receita médica prescrita na consulta.
-- **Observações** (VARCHAR(60)): Observações pertinentes da consulta.
-- **Medico_CRM** (INT, Foreign Key): Referência ao médico que realizou a consulta.
-- **Paciente_CPF** (VARCHAR(11), Foreign Key): Referência ao paciente que teve a consulta.
+3. **Consulta**
+    - **consulta_id (INT, Primary Key)**: Identificador único da consulta.
+    - **data_marcada (DATETIME, NOT NULL)**: Data e hora marcada para a consulta.
+    - **diagnostico (VARCHAR(45))**: Diagnóstico médico.
+    - **receita (VARCHAR(45))**: Receita médica prescrita.
+    - **observacoes (VARCHAR(60))**: Observações relevantes da consulta.
+    - **medico_CRM (INT)**: Chave estrangeira referenciando o CRM do médico na tabela Médico.
+    - **paciente_CPF (VARCHAR(11))**: Chave estrangeira referenciando o CPF do paciente na tabela Paciente.
 
-## Relacionamentos
+4. **Telefone**
+    - **telefone_id (INT, Primary Key)**: Identificador único do telefone.
+    - **telefone (VARCHAR(15))**: Número de telefone.
+    - **medico_CRM (INT)**: Chave estrangeira referenciando o CRM do médico na tabela Médico.
+    - **paciente_CPF (VARCHAR(11))**: Chave estrangeira referenciando o CPF do paciente na tabela Paciente.
 
-- Um médico pode realizar várias consultas.
-- Um paciente pode ter várias consultas.
-- Cada consulta é realizada por um médico e é para um paciente.
+5. **Endereco**
+    - **endereco_id (INT, Primary Key)**: Identificador único do endereço.
+    - **rua (VARCHAR(60))**: Nome da rua.
+    - **numero (VARCHAR(10))**: Número do endereço.
+    - **bairro (VARCHAR(45))**: Nome do bairro.
+    - **cidade (VARCHAR(45))**: Nome da cidade.
+    - **estado (CHAR(2))**: Sigla do estado.
+    - **cep (VARCHAR(10))**: CEP do endereço.
+    - **medico_CRM (INT)**: Chave estrangeira referenciando o CRM do médico na tabela Médico.
 
 ## Modelo Entidade-Relacionamento (MER)
 
 ![MER](https://github.com/Eduardo-J-S/FAP-SOFTEX/blob/main/Database/aulas/atividade05/Conceitual_clinica_medica.png)
-
-### Descrição do MER
-
-O MER descreve as relações entre as entidades Médico, Paciente e Consulta. O diagrama mostra que:
-
-- A entidade **Médico** possui atributos como CRM, Nome, Gênero, Telefone, Endereço e Especialidade.
-- A entidade **Paciente** possui atributos como CPF, Nome, Gênero, Telefone e Data de Nascimento.
-- A entidade **Consulta** possui atributos como Número de Consulta, Data Marcada, Diagnóstico, Receita, Observações.
 
 ## Modelo de Entidade-Relacionamento Derivado (DER)
 
@@ -65,5 +58,10 @@ O DER refina o MER e transforma as entidades e relacionamentos em tabelas e colu
 ## Modelo Físico
 
 [SCRIPTS](https://github.com/Eduardo-J-S/FAP-SOFTEX/blob/main/Database/aulas/atividade05/modelo_fisico_clinica_medica.sql)
+
+## Considerações
+- Este sistema permite o registro detalhado de médicos, pacientes, consultas, telefones e endereços.
+- As tabelas estão relacionadas através de chaves estrangeiras para garantir a integridade referencial dos dados.
+- Cada entidade tem seus atributos específicos bem definidos, facilitando a organização e consulta das informações.
 
 
