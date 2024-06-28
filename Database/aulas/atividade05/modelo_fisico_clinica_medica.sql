@@ -3,7 +3,8 @@ CREATE DATABASE clinica_medica;
 use clinica_medica;
 
 CREATE TABLE medico(
-	CRM VARCHAR(12) PRIMARY KEY,
+	medico_id INT PRIMARY KEY AUTO_INCREMENT,
+	CRM VARCHAR(12) UNIQUE,
     nome VARCHAR(45) NOT NULL,
     genero CHAR(1),
     especialidade VARCHAR(45) NOT NULL
@@ -12,7 +13,8 @@ CREATE TABLE medico(
 SELECT * FROM medico;
 
 CREATE TABLE paciente(
-	CPF VARCHAR(11) PRIMARY KEY,
+	paciente_id INT PRIMARY KEY AUTO_INCREMENT,
+	CPF VARCHAR(11) UNIQUE,
     nome VARCHAR(60) NOT NULL,
     genero CHAR(1) NOT NULL,
     data_nascimento DATE
@@ -21,36 +23,36 @@ CREATE TABLE paciente(
 SELECT * FROM paciente;
 
 CREATE TABLE consulta(
-	consulta_id INT PRIMARY KEY,
+	consulta_id INT PRIMARY KEY AUTO_INCREMENT,
     data_marcada DATETIME NOT NULL,
     diagnostico VARCHAR(45),
     receita VARCHAR(45),
     observacoes VARCHAR(60),
-    medico_CRM VARCHAR(12),
-    paciente_CPF VARCHAR(10),
-    FOREIGN KEY (medico_CRM) REFERENCES medico(CRM),
-    FOREIGN KEY (paciente_CPF) REFERENCES paciente(CPF)
+    medico_id INT,
+    paciente_id INT,
+    FOREIGN KEY (medico_id) REFERENCES medico(medico_id),
+    FOREIGN KEY (paciente_id) REFERENCES paciente(paciente_id)
 );
 
 SELECT * FROM consulta;
 
 CREATE TABLE telefone(
-	telefone_id INT PRIMARY KEY,
+	telefone_id INT PRIMARY KEY AUTO_INCREMENT,
 	telefone VARCHAR(15),
-    medico_CRM VARCHAR(12),
-    paciente_CPF VARCHAR(11),
-    FOREIGN KEY (medico_CRM) REFERENCES medico(CRM),
-    FOREIGN KEY (paciente_CPF) REFERENCES paciente(CPF)
+    medico_id INT,
+    paciente_id INT,
+    FOREIGN KEY (medico_id) REFERENCES medico(medico_id),
+    FOREIGN KEY (paciente_id) REFERENCES paciente(paciente_id)
 );
 
 CREATE TABLE endereco(
-	endereco_id INT PRIMARY KEY,
-    medico_CRM VARCHAR(12),
+	endereco_id INT PRIMARY KEY AUTO_INCREMENT,
+    medico_id INT,
     rua VARCHAR(60),
     numero VARCHAR(10),
     bairro VARCHAR(45),
     cidade VARCHAR(45),
     estado CHAR(2),
     cep VARCHAR(20),
-    FOREIGN KEY (medico_CRM) REFERENCES medico(CRM)
+    FOREIGN KEY (medico_id) REFERENCES medico(medico_id)
 );
