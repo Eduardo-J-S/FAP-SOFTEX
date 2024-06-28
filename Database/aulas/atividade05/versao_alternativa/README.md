@@ -6,20 +6,21 @@ Este projeto implementa o sistema de gerenciamento de uma clínica médica alter
 ### Tabelas
 
 1. **Médico**
-    - **CRM (INT, Primary Key)**: Número de registro no Conselho Regional de Medicina.
+    - **medico_id (INT, Primary Key)**: Identificador único do médico.
+    - **CRM (VARCHAR(12))**: Número de registro no Conselho Regional de Medicina.
     - **nome (VARCHAR(60), NOT NULL)**: Nome do médico.
     - **genero (CHAR(1))**: Gênero do médico.
     - **especialidade (VARCHAR(45), NOT NULL)**: Especialidade médica.
 
 2. **Paciente**
-    - **CPF (VARCHAR(11), Primary Key)**: Número de CPF do paciente.
-    - **nome (VARCHAR(60), NOT NULL)**: Nome do paciente.
+    - **paciente_id (INT, Primary Key)**: Identificador único do paciente.
+    - **CPF (VARCHAR(11))**: Número de CPF do paciente.
     - **genero (CHAR(1), NOT NULL)**: Gênero do paciente.
     - **data_nascimento (DATE)**: Data de nascimento do paciente.
 
 3. **Endereço Médico**
     - **endereco_id (INT, Primary Key, AUTO_INCREMENT)**: Identificador do endereço.
-    - **CRM (INT)**: Chave estrangeira referenciando a tabela Médico.
+    - **medico_id (INT)**: Chave estrangeira referenciando a tabela Médico.
     - **rua (VARCHAR(60))**: Rua do endereço.
     - **numero (VARCHAR(10))**: Número do endereço.
     - **bairro (VARCHAR(45))**: Bairro do endereço.
@@ -29,7 +30,7 @@ Este projeto implementa o sistema de gerenciamento de uma clínica médica alter
 
 4. **Endereço Paciente**
     - **endereco_id (INT, Primary Key, AUTO_INCREMENT)**: Identificador do endereço.
-    - **CPF (VARCHAR(11))**: Chave estrangeira referenciando a tabela Paciente.
+    - **paciente_id (INT)**: Chave estrangeira referenciando a tabela Paciente.
     - **rua (VARCHAR(60))**: Rua do endereço.
     - **numero (VARCHAR(10))**: Número do endereço.
     - **bairro (VARCHAR(45))**: Bairro do endereço.
@@ -39,12 +40,12 @@ Este projeto implementa o sistema de gerenciamento de uma clínica médica alter
 
 5. **Telefone Médico**
     - **telefone_id (INT, Primary Key, AUTO_INCREMENT)**: Identificador do telefone.
-    - **CRM (INT)**: Chave estrangeira referenciando a tabela Médico.
+    - **medico_id (INT)**: Chave estrangeira referenciando a tabela Médico.
     - **telefone (VARCHAR(14), NOT NULL)**: Número de telefone.
 
 6. **Telefone Paciente**
     - **telefone_id (INT, Primary Key, AUTO_INCREMENT)**: Identificador do telefone.
-    - **CPF (VARCHAR(11))**: Chave estrangeira referenciando a tabela Paciente.
+    - **paciente_id (INT)**: Chave estrangeira referenciando a tabela Paciente.
     - **telefone (VARCHAR(14), NOT NULL)**: Número de telefone.
 
 7. **Consulta**
@@ -53,8 +54,8 @@ Este projeto implementa o sistema de gerenciamento de uma clínica médica alter
     - **diagnostico (VARCHAR(45))**: Diagnóstico médico.
     - **receita (VARCHAR(45))**: Receita médica prescrita.
     - **observacoes (VARCHAR(60))**: Observações pertinentes.
-    - **medico_CRM (INT)**: Chave estrangeira referenciando a tabela Médico.
-    - **paciente_CPF (VARCHAR(11))**: Chave estrangeira referenciando a tabela Paciente.
+    - **medico_id (INT)**: Chave estrangeira referenciando o ID do médico na tabela Médico.
+    - **paciente_id (INT)**: Chave estrangeira referenciando o ID do paciente na tabela Paciente.
 
 ## Modelo de Entidade-Relacionamento Derivado (DER)
 
