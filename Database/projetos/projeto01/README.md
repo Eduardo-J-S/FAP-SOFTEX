@@ -48,7 +48,7 @@ Este projeto é um sistema de gerenciamento de consultas médicas, que permite r
 
 ## Modelo Entidade-Relacionamento (MER)
 
-![MER](https://github.com/Eduardo-J-S/FAP-SOFTEX/blob/main/Database/aulas/atividade05/Conceitual_clinica_medica.png)
+![MER](https://github.com/Eduardo-J-S/FAP-SOFTEX/tree/main/Database/projetos/projeto01/Conceitual_clinica_medica.png)
 
 ## Modelo de Entidade-Relacionamento Derivado (DER)
 
@@ -56,11 +56,11 @@ O DER refina o MER e transforma as entidades e relacionamentos em tabelas e colu
 
 ### DER
 
-![DER](https://github.com/Eduardo-J-S/FAP-SOFTEX/blob/main/Database/aulas/atividade05/modelo_logico_clinica_medica.png)
+![DER](https://github.com/Eduardo-J-S/FAP-SOFTEX/tree/main/Database/projetos/projeto01/modelo_logico_clinica_medica.png)
 
 ## Modelo Físico
 
-[SCRIPTS](https://github.com/Eduardo-J-S/FAP-SOFTEX/blob/main/Database/aulas/atividade05/modelo_fisico_clinica_medica.sql)
+[SCRIPTS](https://github.com/Eduardo-J-S/FAP-SOFTEX/tree/main/Database/projetos/projeto01/modelo_fisico_clinica_medica.sql)
 
 ## Considerações
 - Este sistema permite o registro detalhado de médicos, pacientes, consultas, telefones e endereços.
