@@ -10,7 +10,18 @@ CREATE TABLE medico(
     especialidade VARCHAR(45) NOT NULL
 );
 
-SELECT * FROM medico;
+CREATE TABLE especialidade (
+    especialidade_id INT PRIMARY KEY AUTO_INCREMENT,
+    descricao VARCHAR(45) NOT NULL
+);
+
+CREATE TABLE medico_especialidade (
+    medico_id INT,
+    especialidade_id INT,
+    PRIMARY KEY (medico_id, especialidade_id),
+    FOREIGN KEY (medico_id) REFERENCES medico(medico_id),
+    FOREIGN KEY (especialidade_id) REFERENCES especialidade(especialidade_id)
+);
 
 CREATE TABLE paciente(
 	paciente_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -19,8 +30,6 @@ CREATE TABLE paciente(
     genero CHAR(1) NOT NULL,
     data_nascimento DATE
 );
-
-SELECT * FROM paciente;
 
 CREATE TABLE consulta(
 	consulta_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -33,8 +42,6 @@ CREATE TABLE consulta(
     FOREIGN KEY (medico_id) REFERENCES medico(medico_id),
     FOREIGN KEY (paciente_id) REFERENCES paciente(paciente_id)
 );
-
-SELECT * FROM consulta;
 
 CREATE TABLE telefone(
 	telefone_id INT PRIMARY KEY AUTO_INCREMENT,
