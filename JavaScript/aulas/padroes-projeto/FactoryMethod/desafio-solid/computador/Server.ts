@@ -1,19 +1,20 @@
 import { Computador } from "./Computador";
 
-export class PC implements Computador{
+
+export class Server implements Computador {
     private ram: string;
     private hdd: string;
     private cpu: string;
     private type: string;
 
-    public constructor(ram: string, hdd: string, cpu: string){
+    public constructor(ram: string, hdd: string, cpu: string) {
         this.ram = ram;
         this.hdd = hdd;
         this.cpu = cpu;
-        this.type = "PC";
+        this.type = "Server";
     }
 
-    public toString(): string{
+    public toString(): string {
         return `RAM: ${this.ram}, HDD: ${this.hdd}, CPU: ${this.cpu}, TYPE: ${this.type}`;
     }
 

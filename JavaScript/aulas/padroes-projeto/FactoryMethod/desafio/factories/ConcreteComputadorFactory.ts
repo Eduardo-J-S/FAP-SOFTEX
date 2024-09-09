@@ -1,7 +1,7 @@
-import { Computador } from "./Computador";
+import { Computador } from "../Computador";
 import { ComputadorFactory } from "./ComputadorFactory";
-import { PC } from "./PC";
-import { Server } from "./Server";
+import { PC } from "../PC";
+import { Server } from "../Server";
 
 export class ConcreteComputadorFactory extends ComputadorFactory {
     public createComputador(ram: string, hdd: string, cpu: string, type: string): Computador {

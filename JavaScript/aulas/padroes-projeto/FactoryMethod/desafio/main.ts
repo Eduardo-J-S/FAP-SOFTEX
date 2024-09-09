@@ -1,4 +1,5 @@
-import { ConcreteComputadorFactory } from "./ConcreteComputadorFactory";
+import { ConcreteComputadorFactory } from "./factories/ConcreteComputadorFactory";
+
 
 function main() {
     const computador = new ConcreteComputadorFactory();
