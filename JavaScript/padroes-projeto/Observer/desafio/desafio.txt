@@ -1,0 +1,46 @@
+Sistema de Notificação de Eventos
+Descrição
+Você está criando um sistema para gerenciar e notificar eventos em uma aplicação.
+O sistema deve permitir que diferentes partes da aplicação se inscrevam para
+receber notificações quando certos eventos ocorrem. Para isso, você deve
+implementar o padrão Observer.
+Requisitos
+1. Crie uma classe EventManager:
+○ Esta classe deve ser responsável por gerenciar os eventos e os
+observers (ou ouvintes).
+○ A classe deve ter métodos para adicionar (addListener) e remover
+(removeListener) observers.
+○ A classe deve ter um método notifyListeners(eventType:
+string, data: any) que notifica todos os observers registrados
+sobre um evento específico.
+2. Crie uma interface Listener:
+○ Esta interface deve ter um método update(eventType: string,
+data: any) que será chamado quando o EventManager notificar os
+listeners.
+
+3. Crie duas classes que implementam a interface Listener:
+○ EmailNotifier: Esta classe deve implementar a interface
+Listener e simular o envio de um e-mail quando um evento ocorre.
+○ SmsNotifier: Esta classe deve implementar a interface Listener e
+simular o envio de uma mensagem SMS quando um evento ocorre.
+
+4. Utilize o sistema para gerenciar eventos:
+○ Crie uma instância da classe EventManager.
+○ Crie instâncias de EmailNotifier e SmsNotifier.
+○ Adicione os notifiers como observers do EventManager.
+○ Dispare alguns eventos e observe a notificação dos observers.
+
+Tarefas
+1. Implemente a classe EventManager com os métodos descritos.
+2. Crie as classes EmailNotifier e SmsNotifier que implementam a
+interface Listener.
+3. Teste o sistema criando eventos e adicionando/removendo listeners.
+4. Adapte o sistema para suportar múltiplos tipos de eventos e diferentes tipos
+de dados associados a cada evento.
+Dicas
+● Use o conceito de "composição" ao invés de herança para implementar o
+padrão Observer.
+● Certifique-se de que o sistema lida adequadamente com a adição e remoção
+de listeners.
+● Experimente adicionar mais tipos de listeners e eventos para testar a
+flexibilidade do seu sistema.
