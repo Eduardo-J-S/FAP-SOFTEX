@@ -18,12 +18,17 @@ function main() {
         // 4. Disparar alguns eventos e observar a notificação dos observers
         eventManager.notifyListeners("eventoImportante", "09/09/2024");
 
+        console.log("--------------------------")
+        eventManager.removeListener("eventoImportante", emailNotifier)
+
+        eventManager.notifyListeners("eventoImportante", "30/09/2024");
+
         eventManager.addListener("eventoMuitoImportante", emailNotifier)
 
         eventManager.notifyListeners("eventoMuitoImportante", "19/09/2024");
 
         // Testar outro evento (opcional)
-        eventManager.notifyListeners("outroEvento", { message: "Outro evento ocorreu!" });
+        eventManager.notifyListeners("outroEvento", "sem data");
     } catch (error: unknown) {
         if (error instanceof Error) {
             console.error("Erro ao criar notificação: ", error.message);
