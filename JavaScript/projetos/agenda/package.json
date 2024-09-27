@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@types/express": "^4.17.21",
+    "agenda": "file:",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.1",
     "express": "^4.21.0",
