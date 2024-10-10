@@ -1,0 +1,72 @@
+Planejamento e Configuração do Projeto
+
+1. Definir os campos necessários para as entidades de "Cliente" e "Imóvel"
+2.requisitos funcionais e não funcionais:
+	a. Cadastro de Cliente e Imóvel (POST):
+	A API deve permitir o cadastro de novos clientes e imóveis.
+	Os dados obrigatórios para o cadastro de um cliente incluem:
+		Nome completo
+		CPF
+		Data de nascimento
+		Endereço
+	Os dados obrigatórios para o cadastro de um imóvel incluem:
+		Endereço do imóvel
+		Valor do imóvel
+		Tipo do imóvel (apartamento, casa, etc.)
+		Status do imóvel (disponível, vendido, alugado)
+
+	b. Atualização de Cliente e Imóvel (EDIT/PUT):
+	A API deve permitir a atualização de dados de clientes e imóveis.
+	Deve ser possível atualizar qualquer campo desde que o cliente ou imóvel exista no 		banco de dados.
+	O CPF do cliente não pode ser alterado.
+
+	c. Consulta de Cliente e Imóvel (GET):
+	A API deve permitir buscar dados de um cliente ou imóvel por ID.
+	Deve permitir a consulta de todos os imóveis de um cliente específico.
+	Deve retornar um erro apropriado (404) caso o cliente ou imóvel não seja encontrado.
+	
+	d. Validações de Entrada:
+	O CPF deve ser validado para garantir que está em um formato correto.
+	O valor do imóvel deve ser um número positivo.
+	Campos obrigatórios não podem ser nulos ou vazios.
+
+3. Decidir detalhes técnicos como o banco de dados a ser usado (provavelmente PostgreSQL, se for usar o Prisma), estrutura de pastas do projeto e integração com a API de autenticação.
+
+4. Ajeitar a documentação 
+
+5. Configuração Inicial do Projeto
+	Setup do Repositório Git e Ambiente
+		Configurar o repositório do projeto.
+		Definir boas práticas (commits, pull requests, etc.).
+	Configuração do Prisma e Banco de Dados
+		Configurar o Prisma com o banco de dados
+		Criar os modelos iniciais para "Cliente" e "Imóvel".
+		Criar migrations para garantir a estrutura no banco.
+
+6.Desenvolvimento das Rotas POST
+	Criar a rota POST /clientes
+	Implementar validações
+
+	Criar a rota POST /imoveis
+	Implementar validações
+	
+	Testes Unitários das Rotas POST (opcional no momento)
+
+7.Desenvolvimento das Rotas GET
+	Criar a rota GET /clientes/{id}
+	
+	Criar a rota GET /imoveis/{id}
+
+	Criar a rota GET /clientes/{id}/imoveis 
+	Retornar a lista de imóveis ou uma mensagem de erro se o cliente não tiver imóveis ou 	não for encontrado. 
+
+	Testes Unitários das Rotas GET (opcional no momento)
+
+8. Desenvolvimento das Rotas PUT/EDIT
+	Criar a rota PUT /clientes/{id}
+	Validações
+
+	Criar a rota PUT /imoveis/{id}
+	Validações
+
+	Testes Unitários das Rotas PUT (opcional no momento)
